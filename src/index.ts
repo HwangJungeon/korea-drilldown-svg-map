@@ -14,7 +14,9 @@ export {
 export { getDefaultSidoLabel, getSidoLabelOffset } from "./lib/labels.js";
 export {
   createAssetBoundaryLoaders,
+  createBundledBoundaryLoaders,
   fetchBoundaryCollection,
+  loadBundledRegionsMetadata,
   loadRegionsMetadata,
 } from "./lib/loaders.js";
 export {
