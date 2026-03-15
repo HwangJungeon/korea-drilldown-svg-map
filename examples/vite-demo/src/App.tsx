@@ -1,4 +1,5 @@
 import { Children, type ReactNode, useEffect, useMemo, useState } from "react";
+import { ArrowUpRight, Github } from "lucide-react";
 import {
   KoreaAdministrativeMap,
   createBundledBoundaryLoaders,
@@ -115,6 +116,8 @@ const DEMO_LABELS = {
   zoomOut: "축소",
   back: "뒤로",
 } as const;
+
+const REPOSITORY_URL = "https://github.com/HwangJungeon/korea-drilldown-svg-map";
 
 type FillMode = (typeof FILL_MODE_OPTIONS)[number]["value"];
 type SidoLabelMode = (typeof SIDO_LABEL_MODE_OPTIONS)[number]["value"];
@@ -326,13 +329,36 @@ function App() {
           </div>
           <h1 className="text-3xl font-semibold tracking-tight">korea-drilldown-svg-map</h1>
           <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-            시도에서 시군구까지 드릴다운 가능한 대한민국 행정구역 벡터 지도 컴포넌트입니다. 
+            시도에서 시군구까지 드릴다운 가능한 대한민국 행정구역 벡터 지도 컴포넌트입니다.
           </p>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <Badge>React 19</Badge>
-          <Badge variant="secondary">shadcn/ui style</Badge>
-          <Badge variant="outline">Local package link</Badge>
+        <div className="flex flex-col items-start gap-3 md:items-end">
+          <div className="flex flex-wrap gap-2 md:justify-end">
+            <Badge>React 19</Badge>
+            <Badge variant="secondary">shadcn/ui style</Badge>
+            <Badge variant="outline">Local package link</Badge>
+          </div>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="h-auto min-w-[244px] justify-between rounded-xl px-4 py-3"
+          >
+            <a href={REPOSITORY_URL} target="_blank" rel="noreferrer">
+              <span className="flex items-center gap-3">
+                <span className="flex size-9 items-center justify-center rounded-lg border bg-muted/50">
+                  <Github className="size-4" />
+                </span>
+                <span className="flex flex-col items-start leading-tight">
+                  <span className="text-[11px] font-medium uppercase text-muted-foreground">
+                    KOREA DRILLDOWN SVG MAP
+                  </span>
+                  <span className="text-sm font-semibold">GitHub 저장소 보기</span>
+                </span>
+              </span>
+              <ArrowUpRight className="size-4 text-muted-foreground" />
+            </a>
+          </Button>
         </div>
       </header>
 
