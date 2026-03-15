@@ -1,0 +1,56 @@
+{
+  "name": "korea-drilldown-svg-map",
+  "version": "0.1.0",
+  "description": "Customizable React drill-down map for South Korean administrative boundaries.",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "data",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./data/*": "./data/*"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepare": "pnpm build",
+    "preprocess:boundaries": "node ./scripts/preprocess-boundaries.mjs",
+    "copy:boundaries": "node ./scripts/copy-boundaries.mjs"
+  },
+  "keywords": [
+    "korea",
+    "map",
+    "administrative-boundary",
+    "react",
+    "topojson"
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "react-simple-maps": "^3.0.0",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
+    "@types/geojson": "^7946.0.16",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "typescript": "^5.9.3"
+  },
+  "license": "MIT"
+}
