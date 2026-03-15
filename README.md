@@ -43,7 +43,10 @@ runtime dependency:
 
 ## 저장소 예제 앱
 
-Vite 예제는 npm tarball에는 포함되지 않고, 저장소의 `examples/vite-demo` 디렉터리에서만 제공합니다.
+저장소에는 두 개의 예제 앱이 있습니다. 두 예제 모두 npm tarball에는 포함되지 않고, 저장소 clone 기준으로만 제공합니다.
+
+- `examples/vite-demo`: 저장소 루트 패키지를 로컬 link로 연결해서 패키지 개발 중 빠르게 검증하는 예제
+- `examples/next-demo`: npm에 공개된 `korea-drilldown-svg-map` 패키지를 설치해서 실제 소비자 환경과 비슷하게 검증하는 예제
 
 ## 빠른 시작
 
@@ -368,11 +371,25 @@ const metadata = await loadRegionsMetadata("/boundaries");
 
 저장소를 clone한 뒤 예제를 실행하면 패키지와 데모를 함께 검증할 수 있습니다.
 
+### Vite 예제
+
 ```bash
 cd examples/vite-demo
 pnpm install
 pnpm dev
 ```
+
+로컬 패키지를 직접 연결해서, 패키지 소스 변경을 가장 빠르게 확인할 때 적합합니다.
+
+### Next 예제
+
+```bash
+cd examples/next-demo
+pnpm install
+pnpm dev
+```
+
+Next 예제는 npm에 공개된 패키지를 직접 설치해 사용합니다. 별도 `public/boundaries` 복사 없이 `createBundledBoundaryLoaders()`와 `loadBundledRegionsMetadata()`만으로 동작하는지 확인할 때 적합합니다.
 
 데모에서 바로 시험할 수 있는 항목:
 
